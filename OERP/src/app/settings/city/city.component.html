@@ -1,0 +1,154 @@
+<!-- BEGIN PAGE HEADER-->
+<h3 class="page-title">
+  CITY <small>Informations</small>
+</h3>
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li>
+      <i class="fa fa-home"></i>
+      <a href="@">Settings</a>
+      <i class="fa fa-angle-right"></i>
+    </li>
+    <li>
+      <a href="#">CITY Table</a>
+      <i class="fa fa-angle-right"></i>
+    </li>
+    <li>
+      <a href="#">Style Information</a>
+    </li>
+  </ul>
+  <div class="page-toolbar">
+    <div class="btn-group pull-right">
+      <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown"
+        data-hover="dropdown" data-delay="1000" data-close-others="true">
+        Actions <i class="fa fa-angle-down"></i>
+      </button>
+      <ul class="dropdown-menu pull-right" role="menu">
+        <li>
+          <a href="#">Action</a>
+        </li>
+        <li>
+          <a href="#">Another action</a>
+        </li>
+        <li>
+          <a href="#">Something else here</a>
+        </li>
+        <li class="divider">
+        </li>
+        <li>
+          <a href="#">Separated link</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+
+<div class="row">
+  <div class="col-md-12">
+    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+    <div class="portlet box grey-cascade">
+      <div class="portlet-title">
+        <div class="caption">
+          <i class="fa fa-globe"></i>City Information
+        </div>
+        <div class="tools">
+          <a href="#" class="collapse">
+          </a>
+          <a href="#" data-toggle="modal" class="config">
+          </a>
+          <a href="#" class="reload">
+          </a>
+          <a href="#" class="remove">
+          </a>
+        </div>
+      </div>
+      <div class="portlet-body">
+        <div class="table-toolbar">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="btn-group">
+                <button id="sample_editable_1_new" class="btn green">
+                  Add New <i class="fa fa-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="btn-group pull-right">
+                <button class="btn dropdown-toggle" data-toggle="dropdown">Tools <i class="fa fa-angle-down"></i>
+                </button>
+                <ul class="dropdown-menu pull-right">
+                  <li>
+                    <a href="#">
+                      Print </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      Save as PDF </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      Export to Excel </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <table  class="table table-striped table-bordered table-hover" id="sample_1">
+          <thead>
+            <tr>
+              <th class="table-checkbox">
+            <input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes"/>
+          </th>
+              <th>
+                ID
+              </th>
+              <th>
+                City
+              </th>
+              <th>
+                Country
+              </th>
+              <th>
+                Avtions
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd gradeX" *ngFor="let item of cityDatas">
+              <td>
+            <input type="checkbox" class="checkboxes" value="1"/>
+          </td>
+              <td>
+                {{item.id}}
+              </td>
+              <td>
+                {{item.name}}
+              </td>
+              <td>
+                {{item.country.name}}
+              </td>
+              <td>
+                <a (click)=deletecity(item.id) class="btn btn-icon-only red">
+                  <i class="glyphicon glyphicon-remove">
+                  </i>
+                </a>
+                <a href="#" class="btn btn-icon-only blue">
+                  <i class="glyphicon glyphicon-edit">
+                  </i>
+                </a>
+                <a href="#" class="btn btn-icon-only green">
+                  <i class="glyphicon glyphicon-plus"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- END EXAMPLE TABLE PORTLET-->
+  </div>
+</div>
+

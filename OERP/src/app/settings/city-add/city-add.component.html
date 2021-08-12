@@ -1,0 +1,99 @@
+<h3 class="page-title">
+  INSERT CITY <small>Informations</small>
+</h3>
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li>
+      <i class="fa fa-home"></i>
+      <a href="@">Settings</a>
+      <i class="fa fa-angle-right"></i>
+    </li>
+    <li>
+      <a href="#">Add City</a>
+      <i class="fa fa-angle-right"></i>
+    </li>
+    <!-- <li>
+      <a href="#">Style Information</a>
+    </li> -->
+  </ul>
+  <div class="page-toolbar">
+    <div class="btn-group pull-right">
+      <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown"
+        data-hover="dropdown" data-delay="1000" data-close-others="true">
+        Actions <i class="fa fa-angle-down"></i>
+      </button>
+      <ul class="dropdown-menu pull-right" role="menu">
+        <li>
+          <a href="#">Action</a>
+        </li>
+        <li>
+          <a href="#">Another action</a>
+        </li>
+        <li>
+          <a href="#">Something else here</a>
+        </li>
+        <li class="divider">
+        </li>
+        <li>
+          <a href="#">Separated link</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- END PAGE HEADER-->
+<div class="portlet light bordered">
+  <div class="portlet-title">
+    <div class="caption">
+      <i class="icon-equalizer font-blue-hoki"></i>
+      <span class="caption-subject font-blue-hoki bold uppercase">ADD CITY</span>
+    </div>
+    <div class="tools">
+      <a href="" class="collapse">
+      </a>
+      <a href="#portlet-config" data-toggle="modal" class="config">
+      </a>
+      <a href="" class="reload">
+      </a>
+      <a href="" class="remove">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body form">
+    <!-- BEGIN FORM-->
+    <form action="#" class="horizontal-form">
+      <div class="form-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="control-label">CITY</label>
+              <input [(ngModel)]="cityDatas.name" name="name" type="text" id="name" class="form-control" placeholder="Enter City Name">
+              <!-- <span class="help-block">
+              This is inline help </span> -->
+            </div>
+          </div>
+          <!--/span-->
+          <!--/span-->
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="control-label">COUNTRY</label>
+              <select [(ngModel)]="cityDatas.countryId" name = "countryId" class="select2_category form-control" data-placeholder="Choose a Category" tabindex="1">
+                <option value=""></option>
+                <option *ngFor="let order of countryDatas; let i = index" [value]="countryDatas[i].id">
+                  {{countryDatas[i].name}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-actions right">
+        <button type="button" class="btn default">Cancel</button>
+        <button (click) = userCity() type="submit" class="btn blue"><i class="fa fa-check"></i> Save</button>
+      </div>
+    </form>
+    <!-- END FORM-->
+  </div>
+</div>

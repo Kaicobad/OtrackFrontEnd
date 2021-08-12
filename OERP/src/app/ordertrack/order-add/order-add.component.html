@@ -1,0 +1,248 @@
+<h3 class="page-title">
+  INSERT ORDER <small>Informations</small>
+</h3>
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li>
+      <i class="fa fa-home"></i>
+      <a href="@">ORDER-TRACKING</a>
+      <i class="fa fa-angle-right"></i>
+    </li>
+    <li>
+      <a href="#">Add Order</a>
+      <i class="fa fa-angle-right"></i>
+    </li>
+    <!-- <li>
+      <a href="#">Style Information</a>
+    </li> -->
+  </ul>
+  <div class="page-toolbar">
+    <div class="btn-group pull-right">
+      <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown"
+        data-hover="dropdown" data-delay="1000" data-close-others="true">
+        Actions <i class="fa fa-angle-down"></i>
+      </button>
+      <ul class="dropdown-menu pull-right" role="menu">
+        <li>
+          <a href="#">Action</a>
+        </li>
+        <li>
+          <a href="#">Another action</a>
+        </li>
+        <li>
+          <a href="#">Something else here</a>
+        </li>
+        <li class="divider">
+        </li>
+        <li>
+          <a href="#">Separated link</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- END PAGE HEADER-->
+<div class="portlet light bordered">
+  <div class="portlet-title">
+    <div class="caption">
+      <i class="icon-equalizer font-blue-hoki"></i>
+      <span class="caption-subject font-blue-hoki bold uppercase">ADD ORDER</span>
+    </div>
+    <div class="tools">
+      <a href="" class="collapse">
+      </a>
+      <a href="#portlet-config" data-toggle="modal" class="config">
+      </a>
+      <a href="" class="reload">
+      </a>
+      <a href="" class="remove">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body form">
+    <!-- BEGIN FORM-->
+    <form action="#" class="horizontal-form">
+      <div class="form-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label">ORDER NUMBER</label>
+              <input [(ngModel)]="orderDatas.orderNumber" name="orderNumber" type="text" id="orderNumber" class="form-control"
+                placeholder="Enter Order Number">
+              <!-- <span class="help-block">
+                        This is inline help </span> -->
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label">PO.NO</label>
+              <input [(ngModel)]="orderDatas.poNumber" name="poNumber" type="text" id="poNumber" class="form-control"
+                placeholder="Enter PO Number">
+              <!-- <span class="help-block">
+                                      This is inline help </span> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label">STYLE</label>
+              <select [(ngModel)]="orderDatas.styleId"  name = "styleId" class="select2_category form-control" tabindex="1">
+                <option value="0">--Select--</option>
+                <option *ngFor="let style of styleDatas" value= {{style.id}}>
+                  {{style.name}}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label">FCBL-CODE</label>
+              <input [(ngModel)]="orderDatas.fcblCode" name="fcblCode" type="text" id="email" class="form-control" placeholder="Enter FCBL-CODE">
+              <!-- <span class="help-block">
+              This is inline help </span> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label">ORDER DATE</label>
+              <input class="form-control form-control-inline input-medium date-picker" size="16" type="text" value="" />
+              <span class="help-block">
+                Select date </span>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label">PROJECTED ORDER COMPLITION DATE</label>
+              <input class="form-control form-control-inline input-medium date-picker" size="16" type="text" value="" />
+              <span class="help-block">
+                Select date </span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="control-label">TIME FOR ORDER(IN DAYS)</label>
+              <input [(ngModel)]="orderDatas.timeForOrderInDays" name="timeForOrderInDays" type="text" id="timeForOrderInDays" class="form-control"
+                placeholder="Enter Time in Days">
+              <!-- <span class="help-block">
+                        This is inline help </span> -->
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="control-label">QUANTITY</label>
+              <input [(ngModel)]="orderDatas.quantity" name="poNumber" type="text" id="poNumber" class="form-control"
+                placeholder="Enter Quantity">
+              <!-- <span class="help-block">
+                                      This is inline help </span> -->
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="control-label">UNIT</label>
+              <select [(ngModel)]="orderDatas.unitId" name = "unitId" class="select2_category form-control" tabindex="1">
+                <option value="0">--Select--</option>
+                <option *ngFor="let unit of unitDatas " value= {{unit.id}}>
+                  {{unit.name}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="control-label">COMBO</label>
+              <input [(ngModel)]="orderDatas.comboName" name="comboName" type="text" id="comboName" class="form-control"
+                placeholder="Enter Combo Name">
+              <!-- <span class="help-block">
+                                      This is inline help </span> -->
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="control-label">COLOR</label>
+              <select [(ngModel)]="orderDatas.colorId" name = "colorId" class="select2_category form-control" tabindex="1">
+                <option value="0">--Select--</option>
+                <option *ngFor="let color of colorDatas " value= {{color.id}}>
+                  {{color.name}}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="control-label">SIZE</label>
+              <select [(ngModel)]="orderDatas.sizeId" name = "sizeId" class="select2_category form-control" tabindex="1">
+                <option value="0">--Select--</option>
+                <option *ngFor="let size of sizeDatas " value= {{size.id}}>
+                  {{size.name}}
+                </option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label">BUYER</label>
+              <select [(ngModel)]="orderDatas.buyerId" name="buyerId" class="select2_category form-control" tabindex="1">
+                <option value="0">--Select--</option>
+                <option *ngFor="let buyer of buyerDatas " value={{buyer.id}}>
+                  {{buyer.name}}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label col-md-3">PO-FILE</label>
+                <div class="fileinput fileinput-new" data-provides="fileinput">
+                  <div class="input-group input-large">
+                    <div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">
+                      <i class="fa fa-file fileinput-exists"></i>&nbsp; <span class="fileinput-filename">
+                      </span>
+                    </div>
+                    <span class="input-group-addon btn default btn-file">
+                    <span class="fileinput-new">
+                    Select file </span>
+                    <span class="fileinput-exists">
+                    Change </span>
+                    <input [(ngModel)]="fileData" type="file" name="fileData">
+                    </span>
+                    <a href="" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput">
+                    Remove </a>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="form-actions right">
+        <button type="button" class="btn default">Cancel</button>
+        <button (click) = userOrder() type="submit" class="btn blue"><i class="fa fa-check"></i> Save</button>
+      </div>
+    </form>
+    <!-- END FORM-->
+  </div>
+</div>

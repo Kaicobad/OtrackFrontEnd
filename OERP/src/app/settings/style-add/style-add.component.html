@@ -1,0 +1,97 @@
+<h3 class="page-title">
+  INSERT STYLE <small>Informations</small>
+</h3>
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li>
+      <i class="fa fa-home"></i>
+      <a href="@">Settings</a>
+      <i class="fa fa-angle-right"></i>
+    </li>
+    <li>
+      <a href="#">Add Style</a>
+      <i class="fa fa-angle-right"></i>
+    </li>
+    <!-- <li>
+      <a href="#">Style Information</a>
+    </li> -->
+  </ul>
+  <div class="page-toolbar">
+    <div class="btn-group pull-right">
+      <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown"
+        data-hover="dropdown" data-delay="1000" data-close-others="true">
+        Actions <i class="fa fa-angle-down"></i>
+      </button>
+      <ul class="dropdown-menu pull-right" role="menu">
+        <li>
+          <a href="#">Action</a>
+        </li>
+        <li>
+          <a href="#">Another action</a>
+        </li>
+        <li>
+          <a href="#">Something else here</a>
+        </li>
+        <li class="divider">
+        </li>
+        <li>
+          <a href="#">Separated link</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- END PAGE HEADER-->
+<div class="portlet light bordered">
+  <div class="portlet-title">
+    <div class="caption">
+      <i class="icon-equalizer font-blue-hoki"></i>
+      <span class="caption-subject font-blue-hoki bold uppercase">ADD STYLE</span>
+    </div>
+    <div class="tools">
+      <a href="" class="collapse">
+      </a>
+      <a href="#portlet-config" data-toggle="modal" class="config">
+      </a>
+      <a href="" class="reload">
+      </a>
+      <a href="" class="remove">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body form">
+    <!-- BEGIN FORM-->
+    <form action="#" class="horizontal-form">
+      <div class="form-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="control-label">STYLE NAME</label>
+              <input [(ngModel)]="styleData.name" name="name" type="text" id="firstName" class="form-control" placeholder="Enter Style Name">
+              <!-- <span class="help-block">
+              This is inline help </span> -->
+            </div>
+          </div>
+          <!--/span-->
+          <!--/span-->
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="control-label">DESCRIPTION</label>
+              <!-- <input type="" id="firstName" class="form-control" placeholder="Chee Kin"> -->
+              <textarea [(ngModel)]="styleData.description" name="description"  type="textarea" id="description" name="description" class="form-control" placeholder="description"></textarea>
+              <!-- <span class="help-block">
+              This is inline help </span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-actions right">
+        <button type="button" class="btn default">Cancel</button>
+        <button (click) = userStyle() type="submit" class="btn blue"><i class="fa fa-check"></i> Save</button>
+      </div>
+    </form>
+    <!-- END FORM-->
+  </div>
+</div>
