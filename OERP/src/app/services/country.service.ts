@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { CountryModel } from ".././models/country.model";
 import { Observable } from 'rxjs';
+import { environment } from './../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +12,12 @@ export class CountryService {
   constructor(private _HttpClient:HttpClient) { }
 
 
-  addcountryUrl = "https://localhost:44334/api/Country/addcountry";
-  getallcountryUrl = "https://localhost:44334/api/Country/getallcountry";
-  getcountrybyIdUrl = "https://localhost:44334​/api/Country/getcountrybyid/";
-  countryxistUrl = "https://localhost:44334​/api/Country/ifcountrynamealreadyexists/";
-  countryremoveUrl = "https://localhost:44334/api/Country/deletecountrybyid/";
-  countryeditUrl = "https://localhost:44334​/api/ProductUnit/updateproductunit";
+  addcountryUrl = environment.apiUrl + 'Country/addcountry';
+  getallcountryUrl = environment.apiUrl + 'Country/getallcountry';
+  getcountrybyIdUrl = environment.apiUrl + 'Country/getcountrybyid/';
+  countryxistUrl = environment.apiUrl + 'Country/ifcountrynamealreadyexists/';
+  countryremoveUrl = environment.apiUrl + 'Country/deletecountrybyid/';
+  countryeditUrl = environment.apiUrl + 'ProductUnit/updateproductunit';
 
 
    // post country information

@@ -1,19 +1,31 @@
 
-  <!-- header section selector -->
-  <app-header></app-header>
-  <!-- header section selector -->
+<ng-container
+  *ngIf=" logged() == 'true' ; then notauthenticated; else authenticate">
+</ng-container>
 
-  <div class="page-container">
-    <!-- sidebar section selector -->
-    <app-sidebar></app-sidebar>
-    <!-- sidebar section selector -->
-    <div class="page-content-wrapper">
-      <div class="page-content">
-        <!-- Different Page Render section selector -->
-        <router-outlet></router-outlet>
-        <!-- Different Page Render section selector -->
+<ng-template #notauthenticated>
+  <router-outlet></router-outlet>
+</ng-template>
+
+<ng-template #authenticate>
+  <div class="page-header-fixed page-quick-sidebar-over-content">
+    <!-- header section selector -->
+    <app-header></app-header>
+    <!-- header section selector -->
+
+    <div class="page-container">
+      <!-- sidebar section selector -->
+      <app-sidebar></app-sidebar>
+      <!-- sidebar section selector -->
+      <div class="page-content-wrapper">
+        <div class="page-content">
+          <!-- Different Page Render section selector -->
+          <router-outlet></router-outlet>
+          <!-- Different Page Render section selector -->
+        </div>
       </div>
     </div>
-  </div>
-  <app-footer></app-footer>
+    <app-footer></app-footer>
+    </div>
 
+</ng-template>

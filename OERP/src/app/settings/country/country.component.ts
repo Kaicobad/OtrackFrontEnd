@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CountryService } from './../../services/country.service';
 import { ToastrService  } from "ngx-toastr";
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-country',
@@ -10,11 +12,18 @@ import { ToastrService  } from "ngx-toastr";
 export class CountryComponent implements OnInit {
 
   countryDatas: any = [];
-  constructor(private _CountryService: CountryService, private _ToastrService:ToastrService) { }
+  constructor(private _CountryService: CountryService,
+              private _ToastrService:ToastrService,
+              private _Router : Router) { }
 
   ngOnInit(): void {
     this.getcountry();
   }
+//addCountryRoute
+addCountryRoute(){
+  this._Router.navigate(['settings/addcountry'])
+}
+
 //get all colors
 getcountry(): void
   {

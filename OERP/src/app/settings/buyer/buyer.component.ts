@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BuyerService } from './../../services/buyer.service';
 import { ToastrService  } from "ngx-toastr";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-buyer',
@@ -10,12 +11,21 @@ import { ToastrService  } from "ngx-toastr";
 export class BuyerComponent implements OnInit {
 
   buyerDatas: any = [];
-  constructor(private _BuyerService: BuyerService, private _ToastrService:ToastrService) { }
+  constructor(private _BuyerService: BuyerService,
+              private _ToastrService:ToastrService,
+              private _Router : Router) { }
 
   ngOnInit(): void
   {
     this.getBuyer()
   }
+
+//go to buyer add
+buyerroute(){
+this._Router.navigate(['settings/addbuyer'])
+}
+//go to buyer add
+
   getBuyer(): void {
     this._BuyerService
       .getallbuyer()

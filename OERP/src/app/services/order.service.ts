@@ -1,41 +1,42 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { OrderModel } from ".././models/order.model";
+import { environment } from './../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
 
-  addorderUrl = "https://localhost:44334/api/Order/addorder";
-  getallorderUrl = "https://localhost:44334/api/Order/getallorder";
-  getorderbyIdUrl = "https://localhost:44334​/api​/Order/getorderbyid​/{id}";
-  orderxistUrl = "https://localhost:44334​/api​/Order/ifordernamealreadyexists​/{name}"
-  orderremoveUrl = "https://localhost:44334/api/Order/deleteorderbyid/"
-  orderEditUrl = "https://localhost:44334​/api​/Order/Editorder​/{id}"
+  addorderUrl = environment.apiUrl + 'Order/addorder';
+  getallorderUrl = environment.apiUrl + 'Order/getallorder';
+  getorderbyIdUrl = environment.apiUrl + 'Order/getorderbyid​/{id}';
+  orderxistUrl = environment.apiUrl + 'Order/ifordernamealreadyexists​/{name}';
+  orderremoveUrl = environment.apiUrl + 'Order/deleteorderbyid/';
+  orderEditUrl = environment.apiUrl + 'Order/Editorder​/{id}';
 
   constructor(private _HttpClient :HttpClient) { }
   // post order information
-  addorder(data :any)
+  addorder(data :any, file : File)
   {
+
     const _OrderModel: OrderModel =
     {
-      id: data.id,
       orderNumber: data.orderNumber,
       poNumber: data.poNumber,
       styleId: data.styleId,
       fcblCode: data.fcblCode,
       buyerId: data.buyerId,
-      orderDate: data.orderDate,
+
       projectedOrderCompleteDate: data.projectedOrderCompleteDate,
       timeForOrderInDays: data.timeForOrderInDays,
       quantity: data.quantity,
-      productUnitId: data.productUnitId,
+      productUnitId: data.unitId,
       comboName: data.comboName,
       colorId: data.colorId,
       sizeId: data.sizeId,
-      poFileUrl: data.poFileUrl
-
+      poFileUrl: file.name,
+      poFile : file
     };
 
     return this._HttpClient.post<any>(this.addorderUrl, _OrderModel);

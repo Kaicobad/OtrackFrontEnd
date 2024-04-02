@@ -1,18 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { BuyerModel } from ".././models/buyer.model";
+import { environment } from './../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BuyerService
 {
-  addbuyerUrl = "https://localhost:44334/api/Buyer/addbuyer";
-  getallbuyerUrl = "https://localhost:44334/api/Buyer/getallbuyer";
-  getbuyerbyIdUrl = "https://localhost:44334​/api​/Buyer/getbuyerbyid​/";
-  buyerxistUrl = "https://localhost:44334​/api​/Buyer/ifbuyernamealreadyexists​/{name}"
-  buyerremoveUrl = "https://localhost:44334/api/Buyer/deletebuyerbyid/"
-  buyerEditUrl = "https://localhost:44334​/api​/Buyer/Editbuyer​/{id}"
+  addbuyerUrl = environment.apiUrl + 'Buyer/addbuyer';
+
+  // addbuyerUrl = environment.apiUrl + 'Buyer/addbuyer";
+  getallbuyerUrl = environment.apiUrl + 'Buyer/getallbuyer';
+  getbuyerbyIdUrl = environment.apiUrl + 'Buyer/getbuyerbyid​/';
+  buyerxistUrl = environment.apiUrl + 'Buyer/ifbuyernamealreadyexists​/{name}';
+  buyerremoveUrl = environment.apiUrl + 'Buyer/deletebuyerbyid/';
+  buyerEditUrl = environment.apiUrl + 'Buyer/Editbuyer​/{id}';
+
 
   constructor(private _HttpClient :HttpClient) { }
 

@@ -23,6 +23,7 @@ import { ColorAddComponent } from "./color-add/color-add.component";
 import { CountryAddComponent } from "./country-add/country-add.component";
 import { CityAddComponent } from "./city-add/city-add.component";
 import { BuyerAddComponent } from './buyer-add/buyer-add.component';
+import { StyleDetailsComponent } from './style-details/style-details.component';
 
 
 const routes: Routes =
@@ -118,6 +119,10 @@ const routes: Routes =
   {
     path: 'addbuyer',
     component: BuyerAddComponent
+  },
+  {
+    path: 'detailedstyle',
+    component: StyleDetailsComponent
   }
 ];
 

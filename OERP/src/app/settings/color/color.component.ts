@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ColorService } from "../../services/color.service";
 import { ToastrService  } from "ngx-toastr";
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-color',
@@ -10,11 +12,17 @@ import { ToastrService  } from "ngx-toastr";
 export class ColorComponent implements OnInit {
 
   colorDatas: any = [];
-  constructor(private _ColorService: ColorService, private _ToastrService:ToastrService) { }
+  constructor(private _ColorService: ColorService, private _ToastrService:ToastrService,
+    private _Router : Router) { }
 
   ngOnInit(): void {
     this.getcolors();
   }
+//add coulor route
+addColorRoute(){
+  this._Router.navigate(['settings/addcolor'])
+}
+
 //get all colors
   getcolors(): void
   {

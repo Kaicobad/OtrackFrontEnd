@@ -1,8 +1,8 @@
-
 import { Component, OnInit } from '@angular/core';
 import { StyleService } from "../../services/style.service";
 import { ToastrService  } from "ngx-toastr";
 import {Renderer2} from '@angular/core';
+import { Router } from '@angular/router';
 
 declare var $: any;
 
@@ -17,7 +17,8 @@ export class StyleComponent implements OnInit
 styleDatas: any = [];
   constructor(private _StyleService: StyleService,
               private _ToastrService : ToastrService,
-              private _Renderer2 : Renderer2)
+              private _Renderer2 : Renderer2,
+              private _Router : Router)
   { }
 
   // renderExternalScript(src: string): HTMLScriptElement {
@@ -51,6 +52,15 @@ styleDatas: any = [];
     //   // do something with this library
 
   }
+//external Routings
+addStyleRoute(){
+ this._Router.navigate(['settings/addstyle'])
+}
+
+detailedtyleRoute(){
+  this._Router.navigate(['settings/detailedstyle'])
+}
+//external Routings
 
   //get styles
   getstyles(): void

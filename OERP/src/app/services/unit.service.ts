@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { UnitModel } from ".././models/unit.model";
 import { Observable } from 'rxjs';
+import { environment } from './../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +10,12 @@ import { Observable } from 'rxjs';
 export class UnitService
 {
   // private headers = new HttpHeaders({ 'Content-Type': 'application/json'});
-  addunitUrl = "https://localhost:44334/api/ProductUnit/addproductunit";
-  getallunitUrl = "https://localhost:44334/api/ProductUnit/getallproductunit";
-  getunitbyIdUrl = "https://localhost:44334​/api​/ProductUnit​/getproductunitbyid​/";
-  unitxistUrl = "https://localhost:44334​/api​/ProductUnit​/ifproductunitnamealreadyexists​/";
-  unitremoveUrl = "https://localhost:44334/api/ProductUnit/deleteproductunitbyid/";
-  unitEditUrl = "https://localhost:44334​/api/ProductUnit/updateproductunit";
+  addunitUrl = environment.apiUrl + 'ProductUnit/addproductunit';
+  getallunitUrl = environment.apiUrl + 'ProductUnit/getallproductunit';
+  getunitbyIdUrl = environment.apiUrl + 'ProductUnit​/getproductunitbyid​/';
+  unitxistUrl = environment.apiUrl + 'ProductUnit​/ifproductunitnamealreadyexists​/';
+  unitremoveUrl = environment.apiUrl + 'ProductUnit/deleteproductunitbyid/';
+  unitEditUrl = environment.apiUrl + 'ProductUnit/updateproductunit';
 
   constructor(private _HttpClient:HttpClient) { }
 

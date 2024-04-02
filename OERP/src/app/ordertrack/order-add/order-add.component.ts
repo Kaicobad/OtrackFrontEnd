@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import {Renderer2} from '@angular/core';
 import { ToastrService  } from "ngx-toastr"
@@ -6,9 +7,10 @@ import { StyleService } from './../../services/style.service';
 import { SizeService } from './../../services/size.service';
 import { ColorService } from './../../services/color.service';
 import { UnitService } from './../../services/unit.service';
-
+import { OrderService } from './../../services/order.service';
 
 declare var $: any;
+
 @Component({
   selector: 'app-order-add',
   templateUrl: './order-add.component.html',
@@ -22,7 +24,8 @@ export class OrderAddComponent implements OnInit
   unitDatas: any = [];
   colorDatas: any = [];
   sizeDatas: any = [];
-  fileData: any = [];
+  fileData: any;
+  file: any = File;
 
   constructor(private _ToastrService : ToastrService,
               private _Renderer2 : Renderer2,
@@ -30,7 +33,8 @@ export class OrderAddComponent implements OnInit
               private _ColorService:ColorService,
               private _SizeService: SizeService,
               private _BuyerService : BuyerService,
-              private _StyleService : StyleService)
+              private _StyleService : StyleService,
+              private _OrderService : OrderService)
   {
     // Contructor Codes Here !
   }
@@ -49,17 +53,41 @@ export class OrderAddComponent implements OnInit
     this.getBuyer();
   }
 
+  onChange(event: any) {
+    this.file = event.target.files[0];
 
+  }
 
-  getBuyer(): void {
+//Add Orders
+userOrder()
+{
+  this.fileData = this.file;
+  this._OrderService.addorder(this.orderDatas, this.fileData).subscribe
+  (
+    (response: any) => {
+      this._ToastrService.success(" Order information added " + response.message),
+        this.orderDatas = []
+    },
+    (error: any) => {
+      this._ToastrService.error(error.message),
+        console.warn(error)
+    }
+  );
+this.orderDatas = [];
+}
+
+// buyer list
+  getBuyer(): void
+  {
     this._BuyerService
       .getallbuyer()
       .subscribe((response: any) =>
       {
         this.buyerDatas = response.value;
       });
-
   }
+
+  //color list
   getcolors(): void
   {
     this._ColorService
@@ -70,6 +98,8 @@ export class OrderAddComponent implements OnInit
         });
 
   }
+
+  //get unit list
   getunits(): void
   {
     this._UnitService
@@ -80,6 +110,7 @@ export class OrderAddComponent implements OnInit
         });
   }
 
+  //style list
   getstyles(): void
   {
     this._StyleService
@@ -92,7 +123,7 @@ export class OrderAddComponent implements OnInit
         }
       );
   }
-
+  //sizes list
   getsizes(): void
   {
     this._SizeService
@@ -101,10 +132,5 @@ export class OrderAddComponent implements OnInit
         {
           this.sizeDatas = response.value;
         });
-  }
-
-  userOrder()
-  {
-
   }
 }

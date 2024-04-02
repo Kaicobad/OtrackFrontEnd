@@ -109,21 +109,34 @@
 
         <div class="row">
 
-          <div class="col-md-6">
+          <!-- <div class="col-md-6">
             <div class="form-group">
               <label class="control-label">ORDER DATE</label>
-              <input class="form-control form-control-inline input-medium date-picker" size="16" type="text" value="" />
+              <input [(ngModel)]="orderDatas.orderDate" name="orderDate" class="form-control form-control-inline input-medium date-picker" size="16" type="text" value="" />
               <span class="help-block">
                 Select date </span>
+            </div>
+          </div> -->
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label">BUYER</label>
+              <select [(ngModel)]="orderDatas.buyerId" name="buyerId" class="select2_category form-control" tabindex="1">
+                <option value="0">--Select--</option>
+                <option *ngFor="let buyer of buyerDatas " value={{buyer.id}}>
+                  {{buyer.name}}
+                </option>
+              </select>
             </div>
           </div>
 
           <div class="col-md-6">
             <div class="form-group">
               <label class="control-label">PROJECTED ORDER COMPLITION DATE</label>
-              <input class="form-control form-control-inline input-medium date-picker" size="16" type="text" value="" />
+              <input [(ngModel)]="orderDatas.projectedOrderCompleteDate" name="projectedOrderCompleteDate" class="form-control form-control-inline input-medium date-picker" size="16" type="text" value="" />
               <span class="help-block">
                 Select date </span>
+
             </div>
           </div>
 
@@ -202,18 +215,6 @@
 
           <div class="col-md-6">
             <div class="form-group">
-              <label class="control-label">BUYER</label>
-              <select [(ngModel)]="orderDatas.buyerId" name="buyerId" class="select2_category form-control" tabindex="1">
-                <option value="0">--Select--</option>
-                <option *ngFor="let buyer of buyerDatas " value={{buyer.id}}>
-                  {{buyer.name}}
-                </option>
-              </select>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="form-group">
               <label class="control-label col-md-3">PO-FILE</label>
                 <div class="fileinput fileinput-new" data-provides="fileinput">
                   <div class="input-group input-large">
@@ -226,7 +227,7 @@
                     Select file </span>
                     <span class="fileinput-exists">
                     Change </span>
-                    <input [(ngModel)]="fileData" type="file" name="fileData">
+                    <input [(ngModel)]="file" (change)="onChange($event)" type="file" name="file" />
                     </span>
                     <a href="" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput">
                     Remove </a>

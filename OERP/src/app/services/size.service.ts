@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { SizeModel } from ".././models/size.model";
+import { environment } from './../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SizeService
 {
-  addsizeUrl = "https://localhost:44334/api/Size/addsize";
-  getallsizeUrl = "https://localhost:44334/api/Size/getallize";
-  getsizebyIdUrl = "https://localhost:44334​/api​/Size​/getsizebyid​/{id}";
-  sizexistUrl = "https://localhost:44334​/api​/Size​/ifsizenamealreadyexists​/{name}"
-  sizeremoveUrl = "https://localhost:44334/api/Size/deletesizebyid/"
-  sizeEditUrl = "https://localhost:44334​/api​/Size​/Editsize​/{id}"
+  addsizeUrl = environment.apiUrl + 'Size/addsize';
+  getallsizeUrl = environment.apiUrl + 'Size/getallize';
+  getsizebyIdUrl = environment.apiUrl + 'Size​/getsizebyid​/{id}';
+  sizexistUrl = environment.apiUrl + 'Size​/ifsizenamealreadyexists​/{name}';
+  sizeremoveUrl = environment.apiUrl + 'Size/deletesizebyid/';
+  sizeEditUrl = environment.apiUrl + 'Size​/Editsize​/{id}';
 
   constructor(private _HttpClient:HttpClient) { }
 

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { CityModel } from ".././models/city.model";
 import { filter } from 'rxjs/operators';
+import { environment } from './../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +10,12 @@ import { filter } from 'rxjs/operators';
 export class CityService
 {
 
-  addcityUrl = "https://localhost:44334/api/City/addcity";
-  getallcityUrl = "https://localhost:44334/api/City/getallcity";
-  getcitybyIdUrl = "https://localhost:44334​/api​/City/getcitybyid​/";
-  cityxistUrl = "https://localhost:44334​/api​/City/ifcitynamealreadyexists​/{name}"
-  cityremoveUrl = "https://localhost:44334/api/City/deletecitybyid/"
-  cityEditUrl = "https://localhost:44334​/api​/City/Editcity​/{id}"
+  addcityUrl = environment.apiUrl + 'City/addcity';
+  getallcityUrl = environment.apiUrl + 'City/getallcity';
+  getcitybyIdUrl = environment.apiUrl + 'City/getcitybyid​/';
+  cityxistUrl = environment.apiUrl + 'City/ifcitynamealreadyexists​/{name}';
+  cityremoveUrl = environment.apiUrl + 'City/deletecitybyid/';
+  cityEditUrl = environment.apiUrl + 'City/Editcity​/{id}';
 
   constructor(private _HttpClient :HttpClient)
   {

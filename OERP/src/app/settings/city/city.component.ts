@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CityService } from 'src/app/services/city.service';
 import { ToastrService  } from "ngx-toastr";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-city',
@@ -10,14 +11,20 @@ import { ToastrService  } from "ngx-toastr";
 export class CityComponent implements OnInit {
 
   cityDatas: any = [];
-  constructor(private _CityService: CityService, private _ToastrService:ToastrService) { }
+  constructor(private _CityService: CityService,
+              private _ToastrService:ToastrService,
+              private _Router : Router) { }
 
   ngOnInit(): void
   {
-    this.getcolors();
+    this.getcities();
   }
+//city add toute
+cityaddRoute(){
+this._Router.navigate(['settings/addcity'])
+}
 //get all colors
-getcolors(): void
+getcities(): void
 {
   this._CityService
       .getallcity()

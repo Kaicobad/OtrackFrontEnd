@@ -58,7 +58,7 @@
                 </a>
                 <ul class="sub-menu">
                   <li>
-                    <a href="#"><i class="icon-power"></i> User Registration</a>
+                    <a (click) = userReg()><i class="icon-power"></i> User Registration</a>
                   </li>
                   <li>
                     <a href="#"><i class="icon-paper-plane"></i> User Role</a>
@@ -75,13 +75,25 @@
                 </a>
                 <ul class="sub-menu">
                   <li>
-                    <a href="#"><i class="icon-plus"></i> Style</a>
+                    <a (click) = buyer()><i class="icon-plus"></i> Buyer</a>
                   </li>
                   <li>
-                    <a href="#"><i class="icon-plus"></i> Color</a>
+                    <a (click) = style()><i class="icon-plus"></i> Style</a>
                   </li>
                   <li>
-                    <a href="#"><i class="icon-plus"></i> Size</a>
+                    <a (click) = color()><i class="icon-plus"></i> Color</a>
+                  </li>
+                  <li>
+                    <a (click) = size()><i class="icon-plus"></i> Size</a>
+                  </li>
+                  <li>
+                    <a (click) = unit()><i class="icon-plus"></i> Unit</a>
+                  </li>
+                  <li>
+                    <a (click) = country()><i class="icon-plus"></i> country</a>
+                  </li>
+                  <li>
+                    <a (click) = city()><i class="icon-plus"></i> city</a>
                   </li>
                 </ul>
               </li>
@@ -95,28 +107,6 @@
                 <a href="#"><i class="icon-pointer"></i> Sample Link 3</a>
               </li> -->
             </ul>
-          </li>
-          <li>
-            <a href="javascript:;">
-            <i class="icon-globe"></i> Test <span class="arrow"></span>
-            </a>
-            <ul class="sub-menu">
-              <li>
-                <a href="#"><i class="icon-tag"></i> Sample Link 1</a>
-              </li>
-              <li>
-                <a href="#"><i class="icon-pencil"></i> Sample Link 1</a>
-              </li>
-              <li>
-                <a href="#"><i class="icon-graph"></i> Sample Link 1</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">
-            <i class="icon-bar-chart"></i>
-            Test 2
-           </a>
           </li>
         </ul>
       </li>
@@ -132,20 +122,8 @@
         </a>
         <ul class="sub-menu">
           <li>
-            <a href="#">
-            Push Content</a>
-          </li>
-          <li>
-            <a href="#">
-            Over Content</a>
-          </li>
-          <li>
-            <a href="#">
-            Over Content & Transparent</a>
-          </li>
-          <li>
-            <a href="#">
-            Boxed Layout</a>
+            <a (click) = order()>
+           New Order</a>
           </li>
         </ul>
       </li>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { StyleModel } from ".././models/style.model";
 import { Observable } from 'rxjs';
+import { environment } from './../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +10,12 @@ import { Observable } from 'rxjs';
 export class StyleService
 {
   // private headers = new HttpHeaders({ 'Content-Type': 'application/json'});
-  addstyleUrl = "https://localhost:44334/api/Style/addstyle";
-  getallstyleUrl = "https://localhost:44334/api/Style/getallstyle";
-  getstylebyIdUrl = "https://localhost:44334​/api​/Style​/getstylebyid​/{id}";
-  stylexistUrl = "https://localhost:44334​/api​/Style​/ifstylenamealreadyexists​/{name}";
-  styleremoveUrl = "https://localhost:44334/api/Style/deletestylebyid/";
-  styleEditUrl = "https://localhost:44334​/api​/Style​/EditStyle​/{id}";
+  addstyleUrl = environment.apiUrl + 'Style/addstyle';
+  getallstyleUrl = environment.apiUrl + 'Style/getallstyle';
+  getstylebyIdUrl = environment.apiUrl + 'Style​/getstylebyid​/{id}';
+  stylexistUrl = environment.apiUrl + 'Style​/ifstylenamealreadyexists​/{name}';
+  styleremoveUrl = environment.apiUrl + 'Style/deletestylebyid/';
+  styleEditUrl = environment.apiUrl + 'Style​/EditStyle​/{id}';
 
   constructor(private _HttpClient:HttpClient) { }
 

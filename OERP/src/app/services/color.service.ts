@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { ColorModel } from ".././models/color.model";
+import { environment } from './../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ColorService
 {
-  addcolorUrl = "https://localhost:44334/api/Color/addcolor";
-  getallcolorUrl = "https://localhost:44334/api/Color/getallcolor";
-  getcolorbyIdUrl = "https://localhost:44334​/api​/Color​/getcolorbyid​/{id}";
-  colorxistUrl = "https://localhost:44334​/api​/Color​/ifcolornamealreadyexists​/{name}"
-  colorremoveUrl = "https://localhost:44334/api/Color/deletecolorbyid/"
-  colorEditUrl = "https://localhost:44334​/api​/Color​/Editcolor​/{id}"
+  addcolorUrl =  environment.apiUrl + 'Color/addcolor';
+  getallcolorUrl = environment.apiUrl + 'Color/getallcolor';
+  getcolorbyIdUrl = environment.apiUrl + 'Color​/getcolorbyid​/{id}';
+  colorxistUrl = environment.apiUrl + 'Color​/ifcolornamealreadyexists​/{name}';
+  colorremoveUrl = environment.apiUrl + 'Color/deletecolorbyid/';
+  colorEditUrl = environment.apiUrl + 'Color​/Editcolor​/{id}';
 
   constructor(private _HttpClient :HttpClient) { }
   // post color information

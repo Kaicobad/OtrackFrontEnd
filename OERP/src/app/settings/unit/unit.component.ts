@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UnitService } from "../../services/unit.service";
 import { ToastrService  } from "ngx-toastr";
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-unit',
   templateUrl: './unit.component.html',
@@ -8,12 +9,19 @@ import { ToastrService  } from "ngx-toastr";
 })
 export class UnitComponent implements OnInit {
 
-  constructor(private _UnitService: UnitService, private _ToastrService: ToastrService) { }
+  constructor(private _UnitService: UnitService,
+              private _ToastrService: ToastrService,
+              private _Router : Router) { }
   unitDatas: any = [];
   ngOnInit(): void
   {
     this.getunits();
   }
+//unit Router
+addUnitRoute(){
+  this._Router.navigate(['settings/addunit'])
+}
+
   // get all Unit
   getunits(): void
   {
